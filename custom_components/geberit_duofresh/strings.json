@@ -1,0 +1,62 @@
+{
+  "title": "Geberit DuoFresh",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Geberit DuoFresh",
+        "description": "Provide a name and enter the Bluetooth connection details.",
+        "data": {
+          "name": "Name",
+          "address": "Bluetooth MAC address",
+          "device_type": "Device type",
+          "pairing_code": "Pairing PIN (4 digits)"
+        },
+        "data_description": {
+          "address": "Format: AA:BB:CC:DD:EE:FF",
+          "pairing_code": "The 4-digit code found on the device"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Geberit DuoFresh found",
+        "description": "Device found at address {address}. Give it a name and optionally enter the Pairing PIN.",
+        "data": {
+          "name": "Name",
+          "pairing_code": "Pairing PIN (optional)"
+        }
+      }
+    },
+    "error": {
+      "invalid_bluetooth_address": "The provided Bluetooth address is invalid.",
+      "cannot_connect": "Failed to connect to the device.",
+      "invalid_pin": "Incorrect Pairing PIN."
+    }
+  },
+  "entity": {
+    "light": {
+      "orientation_light": {
+        "name": "Orientation light"
+      }
+    },
+    "fan": {
+      "odor_purification_fan": {
+        "name": "Odor extraction fan"
+      }
+    },
+    "sensor": {
+      "filter_status": {
+        "name": "Filter status",
+        "state": {
+          "ok": "Good",
+          "replace": "Replace",
+          "unknown": "Unknown"
+        }
+      },
+      "bluetooth_signal": {
+        "name": "Bluetooth signal"
+      },
+      "bluetooth_mac": {
+        "name": "Bluetooth address"
+      }
+    }
+  }
+}
