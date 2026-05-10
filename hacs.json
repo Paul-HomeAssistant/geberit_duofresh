@@ -1,0 +1,6 @@
+{
+  "name": "Geberit DuoFresh",
+  "content_in_root": false,
+  "domains": ["integration"],
+  "homeassistant": "2024.1.0"
+}
