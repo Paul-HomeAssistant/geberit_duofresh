@@ -1,0 +1,62 @@
+{
+  "title": "Geberit DuoFresh",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configureer een Geberit DuoFresh",
+        "description": "Geef een naam en vul de Bluetooth verbindingsgegevens in.",
+        "data": {
+          "name": "Naam",
+          "address": "Bluetooth MAC-adres",
+          "device_type": "Apparaattype",
+          "pairing_code": "Pairing PIN (4 cijfers)"
+        },
+        "data_description": {
+          "address": "Formaat: AA:BB:CC:DD:EE:FF",
+          "pairing_code": "De 4-cijferige code op het apparaat"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Geberit DuoFresh gevonden",
+        "description": "Apparaat gevonden op adres {address}. Geef het een naam en vul optioneel de Pairing PIN in.",
+        "data": {
+          "name": "Naam",
+          "pairing_code": "Pairing PIN (optioneel)"
+        }
+      }
+    },
+    "error": {
+      "invalid_bluetooth_address": "Het opgegeven Bluetooth-adres is ongeldig.",
+      "cannot_connect": "Kan geen verbinding maken met het apparaat.",
+      "invalid_pin": "Onjuiste Pairing PIN."
+    }
+  },
+  "entity": {
+    "light": {
+      "orientation_light": {
+        "name": "Oriëntatielicht"
+      }
+    },
+    "fan": {
+      "odor_purification_fan": {
+        "name": "Geurzuiveringsventilator"
+      }
+    },
+    "sensor": {
+      "filter_status": {
+        "name": "Filterstatus",
+        "state": {
+          "ok": "In orde",
+          "replace": "Vervangen",
+          "unknown": "Onbekend"
+        }
+      },
+      "bluetooth_signal": {
+        "name": "Bluetooth signaal"
+      },
+      "bluetooth_mac": {
+        "name": "Bluetooth adres"
+      }
+    }
+  }
+}
