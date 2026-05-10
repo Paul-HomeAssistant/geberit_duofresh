@@ -1,0 +1,17 @@
+{
+  "domain": "geberit_duofresh",
+  "name": "Geberit DuoFresh",
+  "version": "1.0.0",
+  "requirements": [],
+  "dependencies": ["bluetooth", "bluetooth_adapters"],
+  "bluetooth": [
+    {
+      "service_uuid": "0000fd48-0000-1000-8000-00805f9b34fb",
+      "manufacturer_id": 1538
+    }
+  ],
+  "codeowners": ["@Paul-HomeAssistant"],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "documentation": "https://github.com/Paul-HomeAssistant/geberit-duofresh"
+}
