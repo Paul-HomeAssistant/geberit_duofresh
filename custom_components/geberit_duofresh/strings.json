@@ -1,6 +1,7 @@
 {
   "title": "Geberit DuoFresh",
   "config": {
+	"flow_title": "{name}",
     "step": {
       "user": {
         "title": "Configure Geberit DuoFresh",
