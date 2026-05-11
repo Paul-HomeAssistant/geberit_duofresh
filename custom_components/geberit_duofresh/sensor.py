@@ -49,7 +49,7 @@ class _GeberitSensorBase(CoordinatorEntity[GeberitCoordinator], SensorEntity):
         strings = data.get("device_strings")
         
         return DeviceInfo(
-            identifiers={(DOMAIN, self._entry.entry_id)},
+            identifiers={(DOMAIN, self._address)},
             connections={(CONNECTION_BLUETOOTH, self._address)},
             name=self._entry.title,
             manufacturer="Geberit",
