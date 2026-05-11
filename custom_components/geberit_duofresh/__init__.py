@@ -7,6 +7,9 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 
+from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers.device_registry import CONNECTION_BLUETOOTH
+
 from .const import DOMAIN
 from .coordinator import GeberitCoordinator
 
@@ -16,11 +19,17 @@ PLATFORMS: tuple[Platform, ...] = (Platform.SENSOR,)
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up Geberit DuoFresh from a config entry."""
     coordinator = GeberitCoordinator(hass, entry)
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
 
-    # First fetch: Get RSSI + device strings
+    device_registry = dr.async_get(hass)
+    device_registry.async_get_or_create(
+        config_entry_id=entry.entry_id,
+        identifiers={(DOMAIN, entry.data["address"])},
+        connections={(CONNECTION_BLUETOOTH, entry.data["address"])},
+        name=entry.title,
+    )
+
     await coordinator.async_config_entry_first_refresh()
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     return True
