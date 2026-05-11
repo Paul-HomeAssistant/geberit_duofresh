@@ -31,6 +31,7 @@ class GeberitDuoFreshConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors = {}
         if user_input is not None:
             try:
+                # Handmatige validatie ipv USER_SCHEMA om crashes te voorkomen
                 address = validate_bluetooth_address(user_input["address"])
                 pairing_code = validate_pairing_code(user_input.get("pairing_code", ""))
                 
