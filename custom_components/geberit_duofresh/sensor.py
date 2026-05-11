@@ -53,7 +53,8 @@ class _GeberitSensorBase(CoordinatorEntity[GeberitCoordinator], SensorEntity):
             connections={(CONNECTION_BLUETOOTH, self._address)},
             name=self._entry.title,
             manufacturer="Geberit",
-            model=strings.model if strings else "DuoFresh",
+            model=strings.device_type_name if strings else "DuoFresh",
+            model_id=strings.model if strings else "DuoFresh",
             sw_version=(strings.fw_version or strings.sw_version) if strings else None,
             hw_version=strings.hw_version if strings else None,
         )
@@ -71,7 +72,8 @@ class GeberitRssiSensor(_GeberitSensorBase):
 
     def __init__(self, coordinator: GeberitCoordinator, entry: ConfigEntry) -> None:
         super().__init__(coordinator, entry)
-        self._attr_unique_id = f"{entry.entry_id}_rssi"
+        # Unique ID moet uniek zijn over de hele HA installatie
+        self._attr_unique_id = f"{self._address}_rssi"
 
     @property
     def native_value(self) -> int | None:
@@ -90,5 +92,5 @@ class GeberitMacSensor(_GeberitSensorBase):
 
     def __init__(self, coordinator: GeberitCoordinator, entry: ConfigEntry) -> None:
         super().__init__(coordinator, entry)
-        self._attr_unique_id = f"{entry.entry_id}_mac"
+        self._attr_unique_id = f"{self._address}_mac"
         self._attr_native_value = self._address
