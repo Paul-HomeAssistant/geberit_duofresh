@@ -40,7 +40,7 @@ class _GeberitSensorBase(CoordinatorEntity[GeberitCoordinator], SensorEntity):
     def __init__(self, coordinator: GeberitCoordinator, entry: ConfigEntry) -> None:
         super().__init__(coordinator)
         self._entry = entry
-        self._address = entry.data["address"]
+        self._address = entry.data["address"].upper()
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -54,7 +54,7 @@ class _GeberitSensorBase(CoordinatorEntity[GeberitCoordinator], SensorEntity):
             name=self._entry.title,
             manufacturer="Geberit",
             model=strings.device_type_name if strings else "DuoFresh",
-            model_id=strings.model if strings else "DuoFresh",
+            model_id=strings.model if strings else None,
             sw_version=(strings.fw_version or strings.sw_version) if strings else None,
             hw_version=strings.hw_version if strings else None,
         )
