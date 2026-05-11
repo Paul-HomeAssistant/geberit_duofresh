@@ -59,6 +59,7 @@ class GeberitDuoFreshConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         address = discovery_info.address
         await self.async_set_unique_id(address)
         self._abort_if_unique_id_configured()
+        self.context["title_placeholders"] = {"name": address}
 
         self.context.update({
             "address": address,
