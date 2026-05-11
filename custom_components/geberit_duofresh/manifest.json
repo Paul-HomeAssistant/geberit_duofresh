@@ -13,5 +13,6 @@
   "codeowners": ["@Paul-HomeAssistant"],
   "config_flow": true,
   "iot_class": "local_polling",
-  "documentation": "https://github.com/Paul-HomeAssistant/geberit-duofresh"
+  "integration_type": "device",
+  "documentation": "https://github.com/Paul-HomeAssistant/geberit_duofresh"
 }
