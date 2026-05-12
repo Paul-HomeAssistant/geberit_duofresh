@@ -55,6 +55,7 @@ class _GeberitSensorBase(CoordinatorEntity[GeberitCoordinator], SensorEntity):
             manufacturer="Geberit",
             model=strings.device_type_name if strings else "DuoFresh",
             model_id=strings.model if strings else None,
+            serial_number=strings.serial if strings else None,
             sw_version=(strings.fw_version or strings.sw_version) if strings else None,
             hw_version=strings.hw_version if strings else None,
         )
